@@ -1,0 +1,5 @@
+- if object.errors.present?
+  .panel.warning
+    ul
+      - object.errors.full_messages.each do |msg|
+        li.text-red = msg

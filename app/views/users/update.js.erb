@@ -1,0 +1,7 @@
+UIkit.modal('#modal_edit_user').hide();
+
+setTimeout(function () {
+  $("#user_<%= @user.id %>").replaceWith('<%= j render 'users/user', user: @user %>');
+
+  UIkit.notify('Completed update user', {status: 'success'});
+}, 400);

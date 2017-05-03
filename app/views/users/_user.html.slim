@@ -1,0 +1,5 @@
+tr id="user_#{user.id}"
+  td = user.name
+  td = user.age
+  td = render 'users/edit', user: user
+  td = link_to 'Destroy', user, data: {confirm: 'Are you sure?'}, method: :delete, remote: true

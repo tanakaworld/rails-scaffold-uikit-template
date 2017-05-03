@@ -1,15 +1,22 @@
-= form_for @user do |f|
-  - if @user.errors.any?
+= form_for user, remote: true do |f|
+  - if user.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      h2 = "#{pluralize(user.errors.count, "error")} prohibited this user from being saved:"
       ul
-        - @user.errors.full_messages.each do |message|
+        - user.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :age
-    = f.number_field :age
-  .actions = f.submit
+  p.error-display
+
+  .uk-form-row
+    = f.label :name, class: 'required uk-form-label'
+    .uk-form-controls
+      = f.text_field :name
+
+  .uk-form-row
+    = f.label :age, class: 'required uk-form-label'
+    .uk-form-controls
+      = f.number_field :age
+
+  .uk-modal-footer
+    = f.submit nil, data: {disable_with: "Loading..."}, class: 'btn btn-flat'

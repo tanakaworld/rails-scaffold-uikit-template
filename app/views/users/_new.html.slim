@@ -1,0 +1,16 @@
+#modal_new_user_wrap
+  a#new_user
+    | New
+
+  #modal_new_user.uk-modal
+    .uk-modal-dialog
+      .uk-modal-header
+        h3 New User
+        .btn-close
+          button.uk-modal-close type="button" ✕ Close
+        = render 'form', user: user
+
+  javascript:
+    $('#new_user').on('click', function () {
+      UIkit.modal('#modal_new_user').show();
+    });

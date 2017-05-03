@@ -1,0 +1,3 @@
+$('#modal_new_user').find('.error-display').html(
+    '<em><%= j render 'shared/error_list', errors: @user.errors.full_messages %><em>'
+);

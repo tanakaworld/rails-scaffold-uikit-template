@@ -1,0 +1,19 @@
+- id = user.id
+- button_id = "edit_user_#{id}"
+- modal_id = "modal_#{button_id}"
+
+a id="#{button_id}"
+  | Edit
+
+.uk-modal id="#{modal_id}"
+  .uk-modal-dialog
+    .uk-modal-header
+      h3 Edit User
+      .btn-close
+        button.uk-modal-close type="button" ✕ Close
+      = render 'form', user: user
+
+javascript:
+  $("##{button_id}").on('click', function () {
+    UIkit.modal("##{modal_id}").show();
+  });

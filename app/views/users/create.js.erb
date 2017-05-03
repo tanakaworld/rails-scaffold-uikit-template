@@ -1,0 +1,8 @@
+UIkit.modal('#modal_new_user').hide();
+
+setTimeout(function () {
+  $('#listing_users').append('<%= j render 'users/user', user: @user %>');
+  $('#modal_new_user_wrap').replaceWith('<%= j render 'users/new', user: User.new %>');
+
+  UIkit.notify('Completed create user', {status: 'success'});
+}, 400);

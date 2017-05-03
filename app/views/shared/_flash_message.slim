@@ -1,0 +1,12 @@
+- if flash.present?
+  - if flash[:error].present?
+    - message = flash[:error]
+    - status = 'danger'
+  - else
+    - message = flash[:notice]
+    - status = 'success'
+
+  javascript:
+    var message = "#{message}";
+    var status = "#{status}";
+    UIkit.notify(message, {status: status});

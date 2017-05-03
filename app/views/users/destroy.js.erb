@@ -1,0 +1,5 @@
+setTimeout(function () {
+  $("#user_<%= @user.id %>").remove();
+
+  UIkit.notify('Completed destroy user', {status: 'success'});
+}, 400);
